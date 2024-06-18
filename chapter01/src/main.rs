@@ -1,19 +1,17 @@
-mod attach1;
-
 fn main() {
-    ch01();
+    greet_world();
 }
 
-fn ch01() {
-    let x = 1;
-    // x = 2; error!
-    println!("x: {}", x);
-    let mut y = 2;
-    println!("y: {}", y);
-    y = 3;
-    println!("y: {}", y);
+fn greet_world() {
+    let southern_germany = "Grüß Gott!";
+    let chinese = "世界，你好";
+    let english = "World, hello";
 
-    // attach1.ch02();
-    let a = attach1::ch02();
-    println!("{}", a);
+    let regions = [southern_germany, chinese, english];
+
+    // Rust 的集合类型不能直接进行循环，需要变成迭代器才能用于迭代循环。
+    // 在2021版之后，可以直接写成 for region in regions 用于循环。因为for隐式地将regions转成迭代器
+    for region in regions.iter() {
+        println!("{}", &region);
+    }
 }
